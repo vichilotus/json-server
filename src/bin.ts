@@ -6,14 +6,14 @@ import { parseArgs } from 'node:util'
 import chalk from 'chalk'
 import { watch } from 'chokidar'
 import JSON5 from 'json5'
-import { Adapter, Low } from 'lowdb'
+import { type Adapter, Low } from 'lowdb'
 import { DataFile, JSONFile } from 'lowdb/node'
-import { PackageJson } from 'type-fest'
+import type { PackageJson } from 'type-fest'
 
 import { fileURLToPath } from 'node:url'
 import { createApp } from './app.js'
 import { Observer } from './observer.js'
-import { Data } from './service.js'
+import type { Data } from './service.js'
 
 function help() {
   console.log(`Usage: json-server [options] <file>
@@ -40,12 +40,12 @@ function args(): {
         port: {
           type: 'string',
           short: 'p',
-          default: process.env['PORT'] ?? '3000',
+          default: process.env.PORT ?? '3000',
         },
         host: {
           type: 'string',
           short: 'h',
-          default: process.env['HOST'] ?? 'localhost',
+          default: process.env.HOST ?? 'localhost',
         },
         static: {
           type: 'string',
@@ -97,7 +97,7 @@ function args(): {
     // App args and options
     return {
       file: positionals[0] ?? '',
-      port: parseInt(values.port as string),
+      port: Number.parseInt(values.port as string),
       host: values.host as string,
       static: values.static as string[],
     }
@@ -187,7 +187,7 @@ app.listen(port, () => {
 })
 
 // Watch file for changes
-if (process.env['NODE_ENV'] !== 'production') {
+if (process.env.NODE_ENV !== 'production') {
   let writing = false // true if the file is being written to by the app
   let prevEndpoints = ''
 
