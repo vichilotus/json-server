@@ -16,7 +16,7 @@
   },
   "scripts": {
     "dev": "tsx watch src/bin.ts fixtures/db.json",
-    "start": "node lib/bin.js fixtures/db.json",
+    "start": "npx json-server fixtures/db.json",
     "build": "rm -rf lib && tsc",
     "test": "node --import tsx/esm --test src/app.test.ts",
     "lint": "eslint src",
