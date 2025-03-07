@@ -4,21 +4,18 @@
   "description": "",
   "type": "module",
   "bin": {
-    "json-server": "lib/bin.js"
+    "json-server": "api/bin.js"
   },
-  "types": "lib",
+  "types": "api",
   "files": [
-    "lib",
+    "api",
     "views"
   ],
-  "engines": {
-    "node": ">=18.0.0"
-  },
   "packageManager": "pnpm@9.14.4",
   "scripts": {
     "dev": "tsx watch src/bin.ts fixtures/db.json",
-    "start": "node lib/bin.js fixtures/db.json",
-    "build": "rm -rf lib && tsc",
+    "start": "node api/bin.js fixtures/db.json",
+    "build": "rm -rf api && tsc",
     "test": "node --import tsx/esm --test src/app.test.ts",
     "lint": "eslint src",
     "prepare": "husky",

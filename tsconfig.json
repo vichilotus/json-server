@@ -1,8 +1,8 @@
 {
 	"extends": "@sindresorhus/tsconfig",
-	"exclude": ["src/**/*.test.ts", "./lib/**/*.ts"],
+	"exclude": ["src/**/*.test.ts", "./api/**/*.ts"],
 	"compilerOptions": {
-		"outDir": "./lib",
+		"outDir": "./api",
 		"noPropertyAccessFromIndexSignature": false
 	}
 }
