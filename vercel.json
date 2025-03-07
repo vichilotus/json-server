@@ -1,6 +1,6 @@
 {
   "functions": {
-    "src/bin.ts": {
+    "api/index.ts": {
       "memory": 1024,
       "includeFiles": "fixtures/db.json"
     }
